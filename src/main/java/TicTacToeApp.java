@@ -20,7 +20,7 @@ public class TicTacToeApp {
         
         if (isValidMove(row, col)) {
             System.out.println("Move accepted!");
-            board[row][col] = currentPlayerSymbol;
+            updateBoard(row, col, currentPlayerSymbol);
             printBoard();
         } else {
             System.out.println("Invalid move. The cell is either out of bounds or already occupied.");
@@ -78,5 +78,9 @@ public class TicTacToeApp {
             return board[row][col] == '-';
         }
         return false;
+    }
+
+    private static void updateBoard(int row, int col, char symbol) {
+        board[row][col] = symbol;
     }
 }
