@@ -1,15 +1,20 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class TicTacToeApp {
     private static char[][] board = new char[3][3];
     private static char currentPlayerSymbol;
     private static char player1Symbol;
     private static char player2Symbol;
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         initializeBoard();
         performToss();
         printBoard();
+        
+        int slot = getPlayerInput();
+        System.out.println("You entered slot: " + slot);
     }
 
     private static void initializeBoard() {
@@ -44,5 +49,10 @@ public class TicTacToeApp {
             player1Symbol = 'O';
             currentPlayerSymbol = 'X';
         }
+    }
+
+    private static int getPlayerInput() {
+        System.out.print("Enter a slot number (1-9): ");
+        return scanner.nextInt();
     }
 }
